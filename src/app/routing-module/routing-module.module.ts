@@ -8,6 +8,11 @@ const routes: Routes =
   {
     path: 'notes',
     component: NotesComponent
+  },
+  {
+    path: '',
+    redirectTo: 'notes',
+    pathMatch: 'full'
   }
 ];
 
