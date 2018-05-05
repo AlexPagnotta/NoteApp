@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
 import { RoutingModuleModule } from './routing-module/routing-module.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AuthRequestOptions } from './auth-classes/auth.request';
 import {RequestOptions} from '@angular/http';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +22,8 @@ import { ErrorHandler} from '@angular/core';
   ],
   imports: [
     BrowserModule,
+    RoutingModuleModule,
+    NgbModule.forRoot()
     RoutingModuleModule,
     HttpClientModule,
     HttpModule
