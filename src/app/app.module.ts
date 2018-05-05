@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
 import { RoutingModuleModule } from './routing-module/routing-module.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { RoutingModuleModule } from './routing-module/routing-module.module';
   ],
   imports: [
     BrowserModule,
-    RoutingModuleModule
+    RoutingModuleModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
