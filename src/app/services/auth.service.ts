@@ -53,4 +53,19 @@ export class AuthService {
       .then(res => res.text());
   }
 
+  signup(email,name,password): Promise<string> {
+    return this.http
+      .post(`${this.url}/register`,
+        JSON.stringify(
+            {
+                email: email,
+                name: name,
+                password: password
+            }
+        ),
+        { headers: this.headers })
+      .toPromise()
+      .then(res => res.text());
+  }
+
 }

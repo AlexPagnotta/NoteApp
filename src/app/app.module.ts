@@ -13,12 +13,14 @@ import { HttpModule } from '@angular/http';
 import { AuthService} from './services/auth.service';
 import { AuthErrorHandler } from './auth-classes/auth-error-handler';
 import { ErrorHandler} from '@angular/core';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
