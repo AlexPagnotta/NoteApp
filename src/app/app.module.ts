@@ -4,6 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
 import { RoutingModuleModule } from './routing-module/routing-module.module';
+import { AuthRequestOptions } from './auth-classes/auth.request';
+import {RequestOptions} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,12 @@ import { RoutingModuleModule } from './routing-module/routing-module.module';
     BrowserModule,
     RoutingModuleModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: RequestOptions, 
+      useClass: AuthRequestOptions
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
