@@ -23,7 +23,7 @@ import { ErrorHandler} from '@angular/core';
   imports: [
     BrowserModule,
     RoutingModuleModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
     RoutingModuleModule,
     HttpClientModule,
     HttpModule
