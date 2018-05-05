@@ -39,9 +39,16 @@ export class AuthService {
     return !(date.valueOf() > new Date().valueOf());
   }
 
-  login(user): Promise<string> {
+  login(email,password): Promise<string> {
     return this.http
-      .post(`${this.url}/login`, JSON.stringify(user), { headers: this.headers })
+      .post(`${this.url}/login`,
+        JSON.stringify(
+            {
+                email: email,
+                password: password
+            }
+        ),
+        { headers: this.headers })
       .toPromise()
       .then(res => res.text());
   }
