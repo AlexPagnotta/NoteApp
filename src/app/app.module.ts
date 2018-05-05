@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
 import { AuthService} from './services/auth.service';
+import { AuthErrorHandler } from './auth-classes/auth-error-handler';
+import { ErrorHandler} from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,10 @@ import { AuthService} from './services/auth.service';
     {
       provide: RequestOptions, 
       useClass: AuthRequestOptions
+    },
+    {
+      provide: ErrorHandler, 
+      useClass: AuthErrorHandler
     },
     AuthService
   ],
