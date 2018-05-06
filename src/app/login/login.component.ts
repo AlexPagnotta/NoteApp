@@ -15,11 +15,17 @@ export class LoginComponent implements OnInit {
   }
 
   logIn(){
-    console.log("trt");
+
     let email ="test@test.it";
     let password ="test";
-    let result = this.auth.login(email,password);
-    console.log(result);
+
+    this.auth.login(email,password)
+    .then(function(result)
+    {
+      console.log(result);
+    }, function(error) {
+      console.log(error);
+    });  
   }
 
 }

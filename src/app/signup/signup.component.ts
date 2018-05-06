@@ -15,11 +15,17 @@ export class SignupComponent implements OnInit {
   }
 
   signUp(){
-    console.log("trt");
+
     let email ="test3@test.it";
     let name = "Ciaone";
     let password ="test";
-    let result = this.auth.signup(email,name,password);
-    console.log(result);
+
+    this.auth.signup(email,name,password)
+    .then(function(result)
+    {
+      console.log(result);
+    }, function(error) {
+      console.log(error);
+    });  
   }
 }
