@@ -12,6 +12,16 @@ export class AuthService {
 
   constructor(private http: Http) { }
 
+  isUserLoggedIn(): boolean{
+    //Check if logged
+    if(!!this.getToken() && !this.isTokenExpired())
+    {
+      return true;
+    }
+
+    return false;
+  }
+
   getToken(): string {
     return localStorage.getItem(TOKEN_NAME);
   }

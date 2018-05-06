@@ -4,6 +4,7 @@ import { NotesComponent } from '../notes/notes.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
+import { RouteGuardService } from '../route-guard.service';
 
 const routes: Routes = 
 [
@@ -17,7 +18,8 @@ const routes: Routes =
   },
   {
     path: 'notes',
-    component: NotesComponent
+    component: NotesComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: '',
@@ -34,6 +36,7 @@ const routes: Routes =
   exports: [
     RouterModule
   ],
+  providers : [RouteGuardService],
   declarations: []
 })
 export class RoutingModuleModule { }
