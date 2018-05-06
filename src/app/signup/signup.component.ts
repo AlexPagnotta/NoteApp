@@ -23,7 +23,8 @@ export class SignupComponent implements OnInit {
     this.auth.signup(email,name,password)
     .then((result) => {
       console.log("ok: ",result);
-      this.auth.setToken(result);
+      let data = JSON.parse(result); 
+      this.auth.setToken(data['token']);
     })
     .catch((err) => {
       console.log("error: ",err.message);

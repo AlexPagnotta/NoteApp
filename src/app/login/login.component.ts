@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
     this.auth.login(email,password)
     .then((result) => {
       console.log("ok: ",result);
-      this.auth.setToken(result);
+      let data = JSON.parse(result); 
+      this.auth.setToken(data['token']); 
     })
     .catch((err) => {
       console.log("error: ",err.message);
