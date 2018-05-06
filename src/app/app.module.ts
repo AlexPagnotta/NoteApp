@@ -15,6 +15,7 @@ import { AuthErrorHandler } from './auth-classes/auth-error-handler';
 import { ErrorHandler} from '@angular/core';
 import { SignupComponent } from './signup/signup.component';
 import { NoteService} from './services/notes.service';
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NoteService} from './services/notes.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RoutingModuleModule,
     NgbModule.forRoot(),
     RoutingModuleModule,
