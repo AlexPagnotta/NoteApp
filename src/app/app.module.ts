@@ -14,6 +14,7 @@ import { AuthService} from './services/auth.service';
 import { AuthErrorHandler } from './auth-classes/auth-error-handler';
 import { ErrorHandler} from '@angular/core';
 import { SignupComponent } from './signup/signup.component';
+import { NoteService} from './services/notes.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SignupComponent } from './signup/signup.component';
       provide: ErrorHandler, 
       useClass: AuthErrorHandler
     },
-    AuthService
+    AuthService,
+    NoteService
   ],
   bootstrap: [AppComponent]
 })
