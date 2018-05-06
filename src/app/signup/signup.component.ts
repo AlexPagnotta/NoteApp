@@ -21,11 +21,12 @@ export class SignupComponent implements OnInit {
     let password ="test";
 
     this.auth.signup(email,name,password)
-    .then(function(result)
-    {
-      console.log(result);
-    }, function(error) {
-      console.log(error);
-    });  
+    .then((result) => {
+      console.log("ok: ",result);
+      this.auth.setToken(result);
+    })
+    .catch((err) => {
+      console.log("error: ",err.message);
+    });
   }
 }
