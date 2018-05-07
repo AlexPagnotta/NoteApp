@@ -1,3 +1,2 @@
-<p *ngFor="let note of notes">
-  {{note.title}}, {{note.text}}
-</p>
+<div app-note *ngFor="let note of notes" [note-data] = "note">
+</div>

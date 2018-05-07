@@ -15,14 +15,16 @@ import { AuthErrorHandler } from './auth-classes/auth-error-handler';
 import { ErrorHandler} from '@angular/core';
 import { SignupComponent } from './signup/signup.component';
 import { NoteService} from './services/notes.service';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { NoteComponent } from './note/note.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NoteComponent
   ],
   imports: [
     BrowserModule,
