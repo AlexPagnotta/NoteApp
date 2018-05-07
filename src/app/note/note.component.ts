@@ -15,4 +15,13 @@ export class NoteComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateNote(){
+  }
+
+  deleteNote(){
+  }
+
+  openNoteDetail(){
+  }
+
 }
