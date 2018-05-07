@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../services/notes.service';
 import { Note } from "../classes/note";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notes',
@@ -11,7 +12,7 @@ export class NotesComponent implements OnInit {
 
   notes: Note[] = [];
 
-  constructor(private service: NoteService) { }
+  constructor(private service: NoteService, private router:Router) { }
 
   ngOnInit() {
     this.service.getNotes()
@@ -26,6 +27,19 @@ export class NotesComponent implements OnInit {
         this.notes.push(note);
         console.log(note.text);
      });
+    })
+    .catch((err) => {
+      console.log("error: ",err.message);
+    });
+  }
+
+  onDeleteNote(note){
+    this.service.deleteNote(note)
+    .then((result) => {
+      //Delete from list
+      const id = this.notes.indexOf(note);
+      this.notes.splice(id,1);
+      console.log("Deleted")
     })
     .catch((err) => {
       console.log("error: ",err.message);

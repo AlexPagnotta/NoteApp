@@ -1,2 +1,8 @@
-<div app-note *ngFor="let note of notes" [note-data] = "note">
+<div app-note 
+    *ngFor="let note of notes" 
+    [note-data] = "note" 
+    (onDeleteNote) = "onDeleteNote($event)"
+>
+
+
 </div>

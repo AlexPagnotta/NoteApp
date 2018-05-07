@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Note } from '../classes/note';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'div[app-note]',
@@ -10,6 +11,8 @@ export class NoteComponent implements OnInit {
 
   @Input('note-data') note: Note;
 
+  @Output('onDeleteNote') noteDeleted = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -19,6 +22,7 @@ export class NoteComponent implements OnInit {
   }
 
   deleteNote(){
+    this.noteDeleted.emit(this.note);
   }
 
   openNoteDetail(){
