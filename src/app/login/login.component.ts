@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
+import { User } from '../classes/user';
+import { EventEmitter } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +12,6 @@ import { NgForm } from '@angular/forms/src/directives/ng_form';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   constructor(private auth:AuthService,private router:Router) { }
 
   ngOnInit() {
@@ -28,7 +30,10 @@ export class LoginComponent implements OnInit {
     .then((result) => {
       console.log("ok: ",result);
       let data = JSON.parse(result); 
-      this.auth.setToken(data['token']); 
+      let user = new User();
+      user.name = ""; //Return user data from call
+      user.email = "";
+      this.auth.setToken(data['token'], user); 
       this.router.navigate(['']);
     })
     .catch((err) => {

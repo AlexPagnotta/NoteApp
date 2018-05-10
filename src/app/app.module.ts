@@ -16,7 +16,8 @@ import { ErrorHandler} from '@angular/core';
 import { SignupComponent } from './signup/signup.component';
 import { NoteService} from './services/notes.service';
 import {FormsModule} from '@angular/forms';
-import { NoteComponent } from './note/note.component'
+import { NoteComponent } from './note/note.component';
+import { NavbarComponent } from './navbar/navbar.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NoteComponent } from './note/note.component'
     NotesComponent,
     LoginComponent,
     SignupComponent,
-    NoteComponent
+    NoteComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { NoteComponent } from './note/note.component'
       useClass: AuthErrorHandler
     },
     AuthService,
-    NoteService
+    NoteService,
   ],
   bootstrap: [AppComponent]
 })

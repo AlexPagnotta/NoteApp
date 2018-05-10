@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import * as jwt_decode from 'jwt-decode';
+import { User } from '../classes/user';
 
 export const TOKEN_NAME: string = 'jwt_token';
+export const USER_DATA_NAME: string = 'user_data';
 
 @Injectable()
 export class AuthService {
@@ -26,8 +28,16 @@ export class AuthService {
     return localStorage.getItem(TOKEN_NAME);
   }
 
-  setToken(token: string): void {
+  getUserData(): User {
+    var userData = localStorage.getItem(USER_DATA_NAME);
+    return JSON.parse(userData);
+  }
+
+  setToken(token: string, user: User): void {
     localStorage.setItem(TOKEN_NAME, token);
+    localStorage.setItem(
+      USER_DATA_NAME, 
+      JSON.stringify(user));
   }
 
   getTokenExpirationDate(token: string): Date {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { User } from '../classes/user';
 
 @Component({
   selector: 'app-signup',
@@ -29,7 +30,10 @@ export class SignupComponent implements OnInit {
     .then((result) => {
       console.log("ok: ",result);
       let data = JSON.parse(result); 
-      this.auth.setToken(data['token']);
+      let user = new User();
+      user.name = ""; //Return user data from call
+      user.email = "";
+      this.auth.setToken(data['token'], user); 
       this.router.navigate(['']);
     })
     .catch((err) => {
