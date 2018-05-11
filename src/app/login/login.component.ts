@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
       console.log("ok: ",result);
       let data = JSON.parse(result); 
       let user = new User();
-      user.name = ""; //Return user data from call
-      user.email = "";
+      user.name = data['name'];
+      user.email =data['email'];
       this.auth.setToken(data['token'], user); 
       this.router.navigate(['']);
     })
