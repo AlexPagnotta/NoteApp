@@ -17,7 +17,8 @@ import { SignupComponent } from './signup/signup.component';
 import { NoteService} from './services/notes.service';
 import {FormsModule} from '@angular/forms';
 import { NoteComponent } from './note/note.component';
-import { NavbarComponent } from './navbar/navbar.component'
+import { NavbarComponent } from './navbar/navbar.component';
+import { NoteCreateEditComponent } from './note-create-edit/note-create-edit.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NavbarComponent } from './navbar/navbar.component'
     LoginComponent,
     SignupComponent,
     NoteComponent,
-    NavbarComponent
+    NavbarComponent,
+    NoteCreateEditComponent
   ],
   imports: [
     BrowserModule,
