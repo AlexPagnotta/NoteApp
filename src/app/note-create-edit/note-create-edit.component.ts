@@ -72,7 +72,13 @@ export class NoteCreateEditComponent implements OnInit {
   }
 
   createNote() {
-
+    this.noteService.createNote(this.note)
+    .then((result) => {
+      console.log('ok: ', result);
+    })
+    .catch((err) => {
+      console.log('error: ', err.message);
+    });
   }
 
 }

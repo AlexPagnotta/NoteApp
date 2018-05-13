@@ -33,6 +33,10 @@ export class NotesComponent implements OnInit {
     });
   }
 
+  createNote() {
+    this.router.navigate(['notes/new']);
+  }
+
   onDeleteNote(note) {
     this.service.deleteNote(note)
     .then((result) => {
