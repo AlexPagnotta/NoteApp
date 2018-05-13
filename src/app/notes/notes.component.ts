@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../services/notes.service';
-import { Note } from "../classes/note";
+import { Note } from '../classes/note';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,15 +12,15 @@ export class NotesComponent implements OnInit {
 
   notes: Note[] = [];
 
-  constructor(private service: NoteService, private router:Router) { }
+  constructor(private service: NoteService, private router: Router) { }
 
   ngOnInit() {
     this.service.getNotes()
      .then((result) => {
-      console.log("ok: ",result);
-      let data = JSON.parse(result); 
+      console.log('ok: ', result);
+      const data = JSON.parse(result);
       data.forEach(element => {
-        let note = new Note();
+        const note = new Note();
         note.id = element['id'];
         note.title = element['title'];
         note.text = element['text'];
@@ -29,20 +29,24 @@ export class NotesComponent implements OnInit {
      });
     })
     .catch((err) => {
-      console.log("error: ",err.message);
+      console.log('error: ', err.message);
     });
   }
 
-  onDeleteNote(note){
+  createNote() {
+    this.router.navigate(['notes/new']);
+  }
+
+  onDeleteNote(note) {
     this.service.deleteNote(note)
     .then((result) => {
-      //Delete from list
+      // Delete from list
       const id = this.notes.indexOf(note);
-      this.notes.splice(id,1);
-      console.log("Deleted")
+      this.notes.splice(id, 1);
+      console.log('Deleted');
     })
     .catch((err) => {
-      console.log("error: ",err.message);
+      console.log('error: ', err.message);
     });
   }
 

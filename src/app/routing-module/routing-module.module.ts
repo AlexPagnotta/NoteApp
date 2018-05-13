@@ -1,3 +1,4 @@
+import { NoteCreateEditComponent } from './../note-create-edit/note-create-edit.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotesComponent } from '../notes/notes.component';
@@ -6,7 +7,7 @@ import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
 import { RouteGuardService } from '../route-guard.service';
 
-const routes: Routes = 
+const routes: Routes =
 [
   {
     path: 'login',
@@ -25,6 +26,16 @@ const routes: Routes =
     path: '',
     redirectTo: 'notes',
     pathMatch: 'full'
+  },
+  {
+    path: 'notes/new',
+    component: NoteCreateEditComponent,
+    canActivate: [RouteGuardService]
+  },
+  {
+    path: 'notes/:id/edit',
+    component: NoteCreateEditComponent,
+    canActivate: [RouteGuardService]
   }
 ];
 

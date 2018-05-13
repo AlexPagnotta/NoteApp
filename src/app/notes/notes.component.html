@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
 
+<button class="btn btn-primary" (click) ="createNote()"> Add note </button>
+
 <div app-note 
     *ngFor="let note of notes" 
     [note-data] = "note" 
