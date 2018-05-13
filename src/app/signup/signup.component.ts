@@ -40,4 +40,8 @@ export class SignupComponent implements OnInit {
       console.log('error: ', err.message);
     });
   }
+
+  logIn() {
+    this.router.navigate(['login']);
+  }
 }
