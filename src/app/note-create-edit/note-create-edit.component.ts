@@ -11,6 +11,7 @@ import { Note } from '../classes/note';
 export class NoteCreateEditComponent implements OnInit {
 
   private note: Note;
+  private isANewNote: boolean;
 
   constructor(private noteService: NoteService,
     private route: ActivatedRoute,
@@ -23,11 +24,13 @@ export class NoteCreateEditComponent implements OnInit {
     this.route.paramMap.subscribe(
       (params) => {
         if (!params.get('id')) {
+          this.isANewNote = true;
           return;
           // It create a note, there is no note id
         }
         const id = params.get('id');
         this.getNoteData(id);
+        this.isANewNote = false;
       }
     );
   }
@@ -49,13 +52,26 @@ export class NoteCreateEditComponent implements OnInit {
   }
 
   saveNote() {
+    if (!this.isANewNote) {
+      this.updateNote();
+    } else {
+      this.createNote();
+    }
+
+    this.router.navigate(['notes']);
   }
 
-  updateUser() {
-
+  updateNote() {
+    this.noteService.updateNote(this.note)
+    .then((result) => {
+      console.log('ok: ', result);
+    })
+    .catch((err) => {
+      console.log('error: ', err.message);
+    });
   }
 
-  createUser() {
+  createNote() {
 
   }
 

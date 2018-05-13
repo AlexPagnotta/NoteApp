@@ -25,6 +25,14 @@ export class NoteService {
           .then(res => res.text());
     }
 
+    updateNote(note): Promise<string> {
+        note['_method'] = 'PUT';
+        return this.http
+            .post(this.url + '/notes/' + note.id, note)
+            .toPromise()
+            .then(res => res.text());
+      }
+
     deleteNote(note): Promise<string> {
         const data = {_method: 'DELETE'};
         return this.http
