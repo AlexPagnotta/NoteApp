@@ -11,33 +11,33 @@ import { User } from '../classes/user';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private auth:AuthService, private router:Router ) { }
+  constructor(private auth: AuthService, private router: Router ) { }
 
   ngOnInit() {
   }
 
-  signUp(form:NgForm){
+  signUp(form: NgForm) {
 
-    if(!form.valid){
+    if (!form.valid) {
       return false;
     }
 
-    let email = form.value.email;
-    let name = form.value.name;
-    let password = form.value.password;
+    const email = form.value.email;
+    const name = form.value.name;
+    const password = form.value.password;
 
-    this.auth.signup(email,name,password)
+    this.auth.signup(email, name, password)
     .then((result) => {
-      console.log("ok: ",result);
-      let data = JSON.parse(result); 
-      let user = new User();
+      console.log('ok: ', result);
+      const data = JSON.parse(result);
+      const user = new User();
       user.name = data['name'];
-      user.email =data['email'];
-      this.auth.setToken(data['token'], user); 
+      user.email = data['email'];
+      this.auth.setToken(data['token'], user);
       this.router.navigate(['']);
     })
     .catch((err) => {
-      console.log("error: ",err.message);
+      console.log('error: ', err.message);
     });
   }
 }
