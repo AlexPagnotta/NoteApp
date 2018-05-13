@@ -12,32 +12,32 @@ import { Injectable, Output } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private auth:AuthService,private router:Router) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  logIn(form:NgForm){	
+  logIn(form: NgForm) {
 
-    if(!form.valid){
+    if (!form.valid) {
       return;
     }
 
-    let email = form.value.email;
-    let password = form.value.password;
+    const email = form.value.email;
+    const password = form.value.password;
 
-    this.auth.login(email,password)
+    this.auth.login(email, password)
     .then((result) => {
-      console.log("ok: ",result);
-      let data = JSON.parse(result); 
-      let user = new User();
+      console.log('ok: ', result);
+      const data = JSON.parse(result);
+      const user = new User();
       user.name = data['name'];
-      user.email =data['email'];
-      this.auth.setToken(data['token'], user); 
+      user.email = data['email'];
+      this.auth.setToken(data['token'], user);
       this.router.navigate(['']);
     })
     .catch((err) => {
-      console.log("error: ",err.message);
+      console.log('error: ', err.message);
     });
   }
 
