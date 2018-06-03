@@ -2,4 +2,17 @@
 $mdc-theme-primary: #FFC400; // primary color
 $mdc-theme-secondary: #444444; // secondary color
 
+$mdc-layout-grid-default-margin: (
+  desktop: 0px,
+  tablet: 0px,
+  phone: 0px
+) !default;
+
+$mdc-layout-grid-default-gutter: (
+  desktop: 0px,
+  tablet: 0px,
+  phone: 0px
+) !default;
+
 @import "~@angular-mdc/theme/material";
+

@@ -1,0 +1,18 @@
+#hideTemp{
+    visibility: hidden;
+    height: 0px;
+}
+
+@import '../../styles.scss';
+
+.mdc-layout-grid{
+    height: 100%;
+    background-color: $mdc-theme-primary;
+}
+
+.t{
+    background-color: $mdc-theme-secondary;
+    width: 100%;
+    height: 300px;
+}
+

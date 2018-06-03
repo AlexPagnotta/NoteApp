@@ -1,10 +1,10 @@
-export class User{
+export class User {
 
     name: string;
     email: string;
 
-    constructor(){
-        this.name = "",
-        this.email=""
+    constructor() {
+        this.name = '';
+        this.email = '';
     }
 }
