@@ -103,6 +103,8 @@
     @include mdc-button-ink-color(white);
     font-family: 'Product Sans';
     font-weight: regular;
+    position: absolute; 
+    right: 30px;
 }
 
 .secondary-button{
@@ -112,5 +114,6 @@
     @include mdc-button-ink-color($text-light-color);
     @include mdc-button-container-fill-color(white);
     font-family: 'Product Sans';
-    font-weight: regular;
+    font-weight: regular;  
+    margin-left: 30px;
 }
