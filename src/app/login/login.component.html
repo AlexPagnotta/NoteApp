@@ -11,9 +11,33 @@
     mdc-layout-grid__cell--span-10-tablet
      mdc-layout-grid__cell--span-12-mobile">
       <div class="card">
-        <div class="banner">
-          
+        <div class="banner">       
         </div>
+        <div class="titles-container">
+            <p class="title">
+                <span>
+                  Note
+                </span>
+                <span class="second-word">
+                    App
+                </span>
+              </p>
+              <p class="title sub-title">
+                  Login
+              </p>
+        </div> 
+        <div class="buttons-container">
+            <button mdc-button 
+            [unelevated]="true" 
+            class="secondary-button">
+                Sign Up
+            </button> 
+            <button mdc-button 
+            [unelevated]="true" 
+            class="main-button">
+                Login
+            </button>            
+        </div>    
       </div>
     </div>
     <div class="mdc-layout-grid__cell
