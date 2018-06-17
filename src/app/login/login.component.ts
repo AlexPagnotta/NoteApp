@@ -39,10 +39,25 @@ export class LoginComponent implements OnInit {
       this.auth.setToken(data['token'], user);
       this.router.navigate(['']);
     })
-    .catch((err) => {
+    .catch((error: any) => {
       this.hasLoginError = true;
-      this.loginErrorText = err.message;
-      console.log('error: ', err.message);
+
+      error = error.json().error;
+
+      // Check Validation errors
+      if (error.email !== undefined) {
+        this.loginErrorText = error.email[0];
+        console.log('error', error.email[0]);
+        return;
+      }
+      if (error.password !== undefined) {
+        this.loginErrorText = error.password[0];
+        console.log('error', error.password[0]);
+        return;
+      }
+
+      this.loginErrorText = error ;
+      console.log('error', error);
     });
   }
 

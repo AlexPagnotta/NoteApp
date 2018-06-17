@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="hasLoginError" class="login-error">Error</div>
+                    <div *ngIf="hasLoginError" class="login-error">{{loginErrorText}}</div>
                     <div class="buttons-container">
                         <button mdc-button [unelevated]="true" class="secondary-button" (click)="signUp()">
                             Sign Up
