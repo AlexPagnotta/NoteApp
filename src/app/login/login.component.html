@@ -16,7 +16,7 @@
         <div class="titles-container">
             <p class="title">
                 <span>
-                  Note
+                    Note
                 </span>
                 <span class="second-word">
                     App
@@ -27,14 +27,40 @@
               </p>
         </div> 
         <form name="loginForm" #f="ngForm" (ngSubmit)="logIn(f)">
-         <div class="text-input-container">    
-            <input required email type="email" 
-            placeholder="Email"
-            ngModel #email="ngModel" name="email" id="email" class="text-input">
-            <input required min-length="6" type="password" ngModel #password="ngModel"
-              name="password"  placeholder="Password"
-              id="password" class="text-input"> 
+         <div class="text-inputs-container">  
+                <div class="text-input-container">
+                        <input required email type="email" 
+                        placeholder="Email"
+                        ngModel #email="ngModel" name="email" id="email" class="text-input">
+            
+                        <div *ngIf="email.touched && email.invalid" class="form-errors">
+                            <div *ngIf="email.hasError('required')">
+                                The Email field is required.
+                            </div>
+                            <div *ngIf="email.hasError('email') && !email.hasError('required') ">
+                                This is not a valid email.
+                            </div>
+                        </div>
+                </div> 
+                <div class="text-input-container">
+                        <input required minlength="6" type="password" ngModel #password="ngModel"
+                        name="password"  placeholder="Password"
+                        id="password" class="text-input"> 
+          
+                      <div *ngIf="password.touched && password.invalid" class="form-errors">
+                          <div *ngIf="password.hasError('required')">
+                              The Password is required.
+                          </div>
+                          <div *ngIf="password.hasError('minlength')">
+                              The Password must be at least 6 characters.
+                          </div>
+                      </div>
+                    </div> 
+            
+
+            
         </div>   
+        
         <div class="buttons-container">
             <button mdc-button 
             [unelevated]="true" 

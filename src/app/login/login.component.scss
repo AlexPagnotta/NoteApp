@@ -21,7 +21,7 @@
     font-family: 'Product Sans';
 
     width: 400px;
-    height: 600px;
+    height: 650px;
     border-radius: 30px;
     margin: auto;
     
@@ -31,9 +31,8 @@
         border-radius: 0px;
     } 
 
-    @media screen and (max-height: 600px){
+    @media screen and (max-height: 650px){
         position: static;
-        height: 600px;
     } 
 }
 
@@ -98,9 +97,9 @@
     font-size: 30px;
 }
 
-.text-input-container{
+.text-inputs-container{
 
-    margin-top: 100px;
+    margin-top: 90px;  
     padding-left: 30px; 
     padding-right: 30px; 
 
@@ -109,9 +108,13 @@
     } 
 }
 
+.text-input-container{
+    height: 140px;
+}
+
 .text-input{
 
-    margin-bottom: 30px;
+    margin-bottom: 20px;  
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -150,6 +153,11 @@
     color: $text-light-color;
 }
 
+.form-errors{
+    color: $mdc-theme-primary;
+    margin-left: 10px; 
+}
+
 .buttons-container{
     position: absolute; 
     bottom: 30px;
@@ -157,7 +165,7 @@
     display: flex;
     justify-content: space-between;
 
-    @media screen and (max-height: 600px){
+    @media screen and (max-height: 650px){
         position: static;
         margin-top: 50px;
         margin-bottom: 30px;
