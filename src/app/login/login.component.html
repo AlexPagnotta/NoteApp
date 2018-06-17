@@ -29,7 +29,8 @@
                     <div class="text-inputs-container">
                         <div class="text-input-container">
                             <input required email type="email" placeholder="Email"
-                             ngModel #email="ngModel" name="email" id="email" class="text-input">
+                             ngModel #email="ngModel" name="email" id="email" class="text-input"
+                             (click)="hasLoginError = false">
                             <div *ngIf="email.touched && email.invalid" class="form-errors">
                                 <div *ngIf="email.hasError('required')">
                                     The Email field is required.
@@ -42,7 +43,7 @@
                         <div class="text-input-container">
                             <input required minlength="6" type="password" ngModel #password="ngModel" 
                             name="password" placeholder="Password" id="password"
-                                class="text-input">
+                                class="text-input" (click)="hasLoginError = false" >
                             <div *ngIf="password.touched && password.invalid" class="form-errors">
                                 <div *ngIf="password.hasError('required')">
                                     The Password is required.
@@ -53,6 +54,7 @@
                             </div>
                         </div>
                     </div>
+                    <div *ngIf="hasLoginError" class="login-error">Error</div>
                     <div class="buttons-container">
                         <button mdc-button [unelevated]="true" class="secondary-button" (click)="signUp()">
                             Sign Up

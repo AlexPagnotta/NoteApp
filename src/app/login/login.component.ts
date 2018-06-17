@@ -14,6 +14,9 @@ import { Injectable, Output } from '@angular/core';
 export class LoginComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) { }
 
+  hasLoginError = false;
+  loginErrorText = '';
+
   ngOnInit() {
   }
 
@@ -37,6 +40,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['']);
     })
     .catch((err) => {
+      this.hasLoginError = true;
+      this.loginErrorText = err.message;
       console.log('error: ', err.message);
     });
   }

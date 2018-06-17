@@ -1,5 +1,7 @@
 @import '../../styles.scss';
 
+$card-heigth: 700px;
+
 .mdc-layout-grid{
     height: 100%;
     background-color: $mdc-theme-primary;
@@ -19,7 +21,7 @@
     overflow: hidden;
     font-family: 'Product Sans';
     width: 400px;
-    height: 650px;
+    height:$card-heigth;
     border-radius: 30px;
     margin: auto;
     
@@ -29,7 +31,7 @@
         border-radius: 0px;
     } 
 
-    @media screen and (max-height: 650px){
+    @media screen and (max-height: $card-heigth){
         position: static;
     } 
 }
@@ -143,6 +145,19 @@
     margin-left: 10px; 
 }
 
+.login-error{
+    color: $text-dark-color;
+    position: absolute; 
+    bottom: 110px;
+    width: 100%;  
+    padding-left: 40px; 
+
+    @media screen and (max-height: $card-heigth){
+        position: static;
+        margin-bottom: 10px;
+    } 
+}
+
 .buttons-container{
     position: absolute; 
     bottom: 30px;
@@ -150,7 +165,7 @@
     display: flex;
     justify-content: space-between;
 
-    @media screen and (max-height: 650px){
+    @media screen and (max-height: $card-heigth){
         position: static;
         margin-top: 50px;
         margin-bottom: 30px;
