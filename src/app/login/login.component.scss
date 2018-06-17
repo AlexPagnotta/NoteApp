@@ -17,9 +17,7 @@
     bottom: 0;
     left: 0;
     overflow: hidden;
-
     font-family: 'Product Sans';
-
     width: 400px;
     height: 650px;
     border-radius: 30px;
@@ -45,10 +43,7 @@
     transform: rotate(-15deg);
     border-radius: 50%;
     
-    -webkit-box-shadow: 20px 35px 0px 5px transparentize($mdc-theme-secondary, .6);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:    20px 35px 0px 5px transparentize($mdc-theme-secondary, .6);  /* Firefox 3.5 - 3.6 */
-    box-shadow:         20px 35px 0px 5px transparentize($mdc-theme-secondary, .6);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-
+    @include box-shadow(20px, 35px, 0px, 5px, transparentize($mdc-theme-secondary, .6));
 
     @media screen and (max-width: 840px){
         margin-top: 0;
@@ -59,9 +54,7 @@
         transform: rotate(0);
         background-color: $mdc-theme-primary;
 
-        -webkit-box-shadow: 0px 35px 0px 5px transparentize($mdc-theme-primary, .6);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-        -moz-box-shadow:    0px 35px 0px 5px transparentize($mdc-theme-primary, .6);  /* Firefox 3.5 - 3.6 */
-        box-shadow:         0px 35px 0px 5px transparentize($mdc-theme-primary, .6);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+        @include box-shadow(0px, 35px, 0px, 5px, transparentize($mdc-theme-primary, .6));
     } 
 }
 
@@ -102,10 +95,6 @@
     margin-top: 90px;  
     padding-left: 30px; 
     padding-right: 30px; 
-
-    @media screen and (max-width: 840px){
-       // margin-top: 110px;
-    } 
 }
 
 .text-input-container{
@@ -128,16 +117,12 @@
 
     border: none;
 
-    -webkit-box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.2);
-    -moz-box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.2);
-    box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.2);
+    @include box-shadow(0px, 3px, 8px, 0px, rgba(194,194,194,0.2));
     font-size: 18px;
 }
 
 .text-input:focus{
-    -webkit-box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.4);
-    -moz-box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.4);
-    box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.4);
+    @include box-shadow(0px, 3px, 8px, 0px, rgba(194,194,194,0.4));
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -154,7 +139,7 @@
 }
 
 .form-errors{
-    color: $mdc-theme-primary;
+    color: $text-dark-color;
     margin-left: 10px; 
 }
 
@@ -181,9 +166,7 @@
     font-weight: regular;
     margin-right: 30px; 
 
-    -webkit-box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.2);
-    -moz-box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.2);
-    box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.2);
+    @include box-shadow(0px, 3px, 8px, 0px, rgba(194,194,194,0.2));
 }
 
 .secondary-button{
@@ -196,7 +179,10 @@
     font-weight: regular;  
     margin-left: 30px; 
 
-    -webkit-box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.2);
-    -moz-box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.2);
-    box-shadow: 0px 3px 8px 0px rgba(194,194,194,0.2);
+    @include box-shadow(0px, 3px, 8px, 0px, rgba(194,194,194,0.2));
+}
+
+button:disabled,
+button[disabled]{
+    @include box-shadow(0px, 0px, 0px, 0px, rgba(194,194,194,0.2));
 }
