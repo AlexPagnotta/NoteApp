@@ -13,6 +13,9 @@ export class SignupComponent implements OnInit {
 
   constructor(private auth: AuthService, private router: Router ) { }
 
+  hasSignupError = false;
+  signupErrorText = '';
+
   ngOnInit() {
   }
 
@@ -36,8 +39,30 @@ export class SignupComponent implements OnInit {
       this.auth.setToken(data['token'], user);
       this.router.navigate(['']);
     })
-    .catch((err) => {
-      console.log('error: ', err.message);
+    .catch((error: any) => {
+      this.hasSignupError = true;
+
+      error = error.json().error;
+
+      // Check Validation errors
+      if (error.name !== undefined) {
+        this.signupErrorText = error.name[0];
+        console.log('error', error.name[0]);
+        return;
+      }
+      if (error.email !== undefined) {
+        this.signupErrorText = error.email[0];
+        console.log('error', error.email[0]);
+        return;
+      }
+      if (error.password !== undefined) {
+        this.signupErrorText = error.password[0];
+        console.log('error', error.password[0]);
+        return;
+      }
+
+      this.hasSignupError = error ;
+      console.log('error', error);
     });
   }
 

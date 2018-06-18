@@ -53,7 +53,7 @@
                       <div class="text-input-container">
                           <input required minlength="6" type="password" ngModel #password="ngModel" 
                           name="password" placeholder="Password" id="password"
-                              class="text-input" (click)="hasLoginError = false" >
+                              class="text-input" (click)="hasSignupError = false" >
                           <div *ngIf="password.touched && password.invalid" class="form-errors">
                               <div *ngIf="password.hasError('required')">
                                   The Password is required.
@@ -64,7 +64,7 @@
                           </div>
                       </div>
                   </div>
-                  <div *ngIf="hasLoginError" class="login-error">{{loginErrorText}}</div>
+                  <div *ngIf="hasSignupError" class="signup-error">{{signupErrorText}}</div>
                   <div class="buttons-container">
                       <button mdc-button [unelevated]="true" class="secondary-button" (click)="logIn()">
                           Login
