@@ -1,5 +1,9 @@
-<div class="panel">
-  <p>{{user.email}}</p>
-  <p>{{user.name}}</p>
-  <button (click) ="logOut()" >Log Out</button>
+<div class="user-info">
+  <div class="name-image-container">
+      <p class="name-field">{{user.name}}</p>
+      <div class="user-image"></div>
+  </div>
+  <button mdc-button [unelevated]="true" class="logout-button" (click)="logOut()">
+     Log Out
+  </button>
 </div>

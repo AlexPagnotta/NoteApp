@@ -1,0 +1,56 @@
+@import '../../styles.scss';
+
+.user-info{
+    padding-left: 20px;
+    padding-right: 20px;
+
+    color: $mdc-theme-secondary;
+    background-color: white;
+    border-radius: 30px;
+
+    height: 70px;
+    width: 90%;
+
+    @include box-shadow(0px, 3px, 8px, 0px, rgba(194,194,194,0.2));
+    font-size: 18px;
+
+    overflow: hidden;
+
+    -webkit-transition: height 0.5s; /* Safari */
+    transition: height 0.5s;
+}
+
+.user-info:hover{
+    height:150px;
+}
+
+.name-image-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.name-field{
+    height: 70px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: lightgray;
+    margin-top: 10px;
+    padding-right: -10px;
+}
+
+.logout-button{
+    height: 50px;
+    border-radius: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+    @include mdc-button-ink-color(white);
+    @include box-shadow(0px, 3px, 8px, 0px, rgba(194,194,194,0.2));
+}
