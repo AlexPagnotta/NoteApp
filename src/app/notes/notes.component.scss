@@ -15,12 +15,15 @@
     display: flex;
     justify-content: space-between;
     padding:0px;
-    
+
+    @media screen and (max-width: 840px){
+        height: 100px;
+    } 
 }
 
 .logo{
     height: 100%;
-    width: 250px;
+    width: 200px;
     display: flex;
     align-items: center; 
 }
@@ -29,8 +32,12 @@
     font-weight: bold;
     color: $mdc-theme-secondary;
     font-size: 40px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
     margin-left: 20px;
+
+    @media screen and (max-width: 840px){
+        font-size: 38px;
+    } 
 }
 
 .second-word{
@@ -51,10 +58,13 @@
 
     display: flex; 
     align-items: center; 
+
+    @media screen and (max-width: 840px){
+        display: none;
+    } 
 }
 
 .search-bar{
-
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -93,4 +103,23 @@
     height: 100%;
     width: 300px;
     margin-top: 50px;
+
+    @media screen and (max-width: 840px){
+        display: none;
+    } 
+}
+
+.navbar-icon{
+    height:100%;
+    display: flex; 
+    align-items: center; 
+    text-justify: center;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: $mdc-theme-secondary;
+
+    @media screen and (min-width: 840px){
+        display: none;
+    } 
 }
