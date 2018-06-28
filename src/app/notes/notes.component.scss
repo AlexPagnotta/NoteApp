@@ -105,7 +105,15 @@
     margin-top: 50px;
 
     @media screen and (max-width: 840px){
-        display: none;
+        margin-top: 0px;
+        height:100%;
+        width: auto;
+        display: flex; 
+        align-items: center; 
+        text-justify: center;
+        font-size: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
     } 
 }
 

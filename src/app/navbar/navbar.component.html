@@ -7,3 +7,11 @@
      Log Out
   </button>
 </div>
+
+<mdc-menu-anchor #anchor class="logout-menu">
+  <button mdcIconButton iconOn="more_vert" iconOff="more_vert" (click)="menu.open()" class="logout-menu-icon">
+    </button>
+  <mdc-menu #menu (select)="handleMenuSelect($event)" [anchor]="anchor">
+    <mdc-menu-item id="0">Logout</mdc-menu-item>
+  </mdc-menu>
+</mdc-menu-anchor>

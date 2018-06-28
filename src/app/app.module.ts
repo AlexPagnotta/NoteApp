@@ -19,7 +19,7 @@ import {FormsModule} from '@angular/forms';
 import { NoteComponent } from './note/note.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NoteCreateEditComponent } from './note-create-edit/note-create-edit.component';
-import { MdcButtonModule, MdcGridListModule, MdcMenuModule  } from '@angular-mdc/web';
+import { MdcButtonModule, MdcGridListModule, MdcMenuModule, MdcIconButtonModule } from '@angular-mdc/web';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { MdcButtonModule, MdcGridListModule, MdcMenuModule  } from '@angular-mdc
     HttpModule,
     MdcButtonModule,
     MdcGridListModule,
-    MdcMenuModule
+    MdcMenuModule,
+    MdcIconButtonModule
   ],
   providers: [
     {
