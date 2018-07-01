@@ -9,7 +9,7 @@
           </span>
       </p>
   </div>
-  <div class="actions">
+  <div class="items">
       <div class="search-bar-container">
           <input class="search-bar" type="text" placeholder="Search...">
       </div>
@@ -23,15 +23,15 @@
               <button mdc-button [unelevated]="true" class="logout-button" (click)="logOut()">
                  Log Out
               </button>
-            </div>
-            
-            <mdc-menu-anchor #anchor class="logout-menu">
-              <button mdcIconButton iconOn="more_vert" iconOff="more_vert" (click)="menu.open()" class="logout-menu-icon">
-                </button>
-              <mdc-menu #menu (select)="handleMenuSelect($event)" [anchor]="anchor">
-                <mdc-menu-item id="0">Logout</mdc-menu-item>
-              </mdc-menu>
-            </mdc-menu-anchor>
-      </div>        
+          </div>        
+      </div>   
+      <mdc-menu-anchor #anchor class="logout-menu">
+          <button mdcIconButton iconOn="more_vert" iconOff="more_vert"
+           (click)="menu.open()" class="logout-menu-icon">
+            </button>
+          <mdc-menu #menu (select)="handleMenuSelect($event)" [anchor]="anchor">
+            <mdc-menu-item id="0">Logout</mdc-menu-item>
+          </mdc-menu>
+        </mdc-menu-anchor>     
   </div>  
 </div>
