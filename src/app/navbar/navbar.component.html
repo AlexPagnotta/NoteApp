@@ -1,37 +1,39 @@
-<div class="navbar">
-  <div class="logo">
-      <p class="title">
-          <span>
-              Note
-          </span>
-          <span class="second-word">
-              App
-          </span>
-      </p>
+<div class="main-container">
+  <div class="navbar-logo">
+    <p class="logo-text">
+      <span>
+        Note
+      </span>
+      <span class="logo-text-second-word">
+        App
+      </span>
+    </p>
   </div>
-  <div class="items">
-      <div class="search-bar-container">
-          <input class="search-bar" type="text" placeholder="Search...">
+  <div class="navbar-items">
+    <div class="search-bar-container">
+      <input class="search-bar" type="text" placeholder="Search...">
+    </div>
+    <div class="icon-container-mobile">
+      <button mdcIconButton iconOn="search" iconOff="search" class="icon-mobile">
+      </button>
+    </div>
+    <div class="user-info-container">
+      <div class="user-info">
+        <div class="user-info-visible">
+          <p class="user-name">{{user.name}}</p>
+          <div class="user-image"></div>
+        </div>
+        <button mdc-button [unelevated]="true" class="user-logout-button" (click)="logOut()">
+          Log Out
+        </button>
       </div>
-      <i class="material-icons navbar-icon">search</i>
-      <div class="user-info-container">
-          <div class="user-info">
-              <div class="name-image-container">
-                  <p class="name-field">{{user.name}}</p>
-                  <div class="user-image"></div>
-              </div>
-              <button mdc-button [unelevated]="true" class="logout-button" (click)="logOut()">
-                 Log Out
-              </button>
-          </div>        
-      </div>   
-      <mdc-menu-anchor #anchor class="logout-menu">
-          <button mdcIconButton iconOn="more_vert" iconOff="more_vert"
-           (click)="menu.open()" class="logout-menu-icon">
-            </button>
-          <mdc-menu #menu (select)="handleMenuSelect($event)" [anchor]="anchor">
-            <mdc-menu-item id="0">Logout</mdc-menu-item>
-          </mdc-menu>
-        </mdc-menu-anchor>     
-  </div>  
+    </div>
+    <mdc-menu-anchor #anchor class="icon-container-mobile">
+      <button mdcIconButton iconOn="more_vert" iconOff="more_vert" (click)="menu.open()" class="icon-mobile">
+      </button>
+      <mdc-menu #menu (select)="handleMenuSelect($event)" [anchor]="anchor">
+        <mdc-menu-item id="0">Logout</mdc-menu-item>
+      </mdc-menu>
+    </mdc-menu-anchor>
+  </div>
 </div>
