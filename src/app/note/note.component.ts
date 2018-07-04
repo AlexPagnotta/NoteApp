@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   // tslint:disable-next-line:component-selector
   selector: 'div[app-note]',
   templateUrl: './note.component.html',
-  styleUrls: ['./note.component.css']
+  styleUrls: ['./note.component.scss']
 })
 export class NoteComponent implements OnInit {
 

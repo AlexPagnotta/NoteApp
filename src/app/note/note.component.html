@@ -1,5 +1,20 @@
-
-<div class="note-back">
+<div class="card">
+  <p class="title">
+    {{note.title}}
+  </p>
+  <p class="text">
+    {{note.text}}
+  </p>
+  <div class="footer">
+    <p class="action-text">
+      EDIT
+    </p>
+    <p class="action-text">
+      REMOVE
+    </p>
+  </div>
+</div>
+<!--<div class="note-back">
   <h2>
     {{note.title}}
   </h2>
@@ -9,4 +24,4 @@
   </p>
   <button class="btn btn-sm" (click) ="updateNote()"> Edit </button>  
   <button class="btn btn-sm" (click) ="deleteNote()"> Delete </button>
-</div>
+</div>-->
