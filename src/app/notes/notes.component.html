@@ -2,7 +2,7 @@
 
   <app-navbar></app-navbar>
 
-  <button class="btn btn-primary" (click)="createNote()"> Add note </button>
+  <button class="btn btn-primary add-note-btn" (click)="createNote()"> + </button>
 
   <mdc-image-list [masonry]="true" class="masonry-image-list">
     <mdc-image-list-item *ngFor="let note of notes">
