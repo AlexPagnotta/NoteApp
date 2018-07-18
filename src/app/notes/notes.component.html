@@ -4,7 +4,7 @@
 
   <button class="btn btn-primary" (click)="createNote()"> Add note </button>
 
-  <mdc-image-list #demomasonry [masonry]="true" class="masonry-image-list">
+  <mdc-image-list [masonry]="true" class="masonry-image-list">
     <mdc-image-list-item *ngFor="let note of notes">
             <div app-note 
             [note-data]="note" (onDeleteNote)="onDeleteNote($event)">
