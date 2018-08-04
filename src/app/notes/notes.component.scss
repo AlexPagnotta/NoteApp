@@ -23,6 +23,7 @@
 .masonry-image-list {
     @include mdc-image-list-masonry-columns(4);
     width: 1200px;
+    //Use max width
 
     @media (max-width: 1200px) {
       @include mdc-image-list-masonry-columns(3);    
