@@ -22,7 +22,7 @@ import { NoteCreateEditComponent } from './note-create-edit/note-create-edit.com
 import { MdcButtonModule, MdcFabModule,
   MdcGridListModule, MdcIconModule,
   MdcMenuModule, MdcIconButtonModule,
-  MdcImageListModule  } from '@angular-mdc/web';
+  MdcImageListModule, MdcDialogModule  } from '@angular-mdc/web';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,8 @@ import { MdcButtonModule, MdcFabModule,
     MdcIconButtonModule,
     MdcImageListModule,
     MdcFabModule,
-    MdcIconModule
+    MdcIconModule,
+    MdcDialogModule
   ],
   providers: [
     {
