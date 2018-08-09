@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../services/notes.service';
 import { Note } from '../classes/note';
 import { Router } from '@angular/router';
+import { MdcDialog } from '@angular-mdc/web';
+import { NoteCreateEditComponent } from '../note-create-edit/note-create-edit.component';
 
 @Component({
   selector: 'app-notes',
@@ -12,7 +14,7 @@ export class NotesComponent implements OnInit {
 
   notes: Note[] = [];
 
-  constructor(private service: NoteService, private router: Router) { }
+  constructor(public dialog: MdcDialog, private service: NoteService, private router: Router) { }
 
   ngOnInit() {
     this.service.getNotes()
@@ -34,7 +36,8 @@ export class NotesComponent implements OnInit {
   }
 
   createNote() {
-    this.router.navigate(['notes/new']);
+    this.dialog.open(NoteCreateEditComponent);
+    // this.router.navigate(['notes/new']);
   }
 
   onDeleteNote(note) {

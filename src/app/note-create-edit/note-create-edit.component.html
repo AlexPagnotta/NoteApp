@@ -1,4 +1,4 @@
-<div class="row">
+<!--<div class="row">
   <div class="col-md-6">
     <form name="noteForm" #f="ngForm">
       <div class="form-group">
@@ -14,4 +14,17 @@
         </div>
     </form>
   </div>
-</div>
+</div>-->
+
+<mdc-dialog>
+  <mdc-dialog-surface>
+    <mdc-dialog-header title="Use Google's location service?"></mdc-dialog-header>
+    <mdc-dialog-body>
+      Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+    </mdc-dialog-body>
+    <mdc-dialog-footer>
+      <button mdc-dialog-button [cancel]="true">Decline</button>
+      <button mdc-dialog-button [accept]="true" (click)="closeDialog()">Accept</button>
+    </mdc-dialog-footer>
+  </mdc-dialog-surface>
+</mdc-dialog>
