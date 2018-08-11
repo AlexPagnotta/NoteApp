@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Note } from '../classes/note';
 import { EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 import { MdcDialog, MdcDialogComponent, MdcDialogRef } from '@angular-mdc/web';
 import { NoteCreateEditComponent } from '../note-create-edit/note-create-edit.component';
 
@@ -19,7 +18,7 @@ export class NoteComponent implements OnInit {
   // tslint:disable-next-line:no-output-rename
   @Output('onDeleteNote') noteDeleted = new EventEmitter();
 
-  constructor(private router: Router, public dialog: MdcDialog) { }
+  constructor(public dialog: MdcDialog) { }
 
   ngOnInit() {
   }
@@ -31,7 +30,6 @@ export class NoteComponent implements OnInit {
       clickOutsideToClose: true,
       backdrop: true
     });
-    // this.router.navigate(['notes', this.note.id, 'edit']);
   }
 
   deleteNote() {

@@ -51,6 +51,9 @@ import { MdcButtonModule, MdcFabModule,
     MdcIconModule,
     MdcDialogModule
   ],
+  entryComponents: [
+    NoteCreateEditComponent
+  ],
   providers: [
     {
       provide: RequestOptions,

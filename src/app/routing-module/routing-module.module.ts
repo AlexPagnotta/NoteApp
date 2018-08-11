@@ -26,16 +26,6 @@ const routes: Routes =
     path: '',
     redirectTo: 'notes',
     pathMatch: 'full'
-  },
-  {
-    path: 'notes/new',
-    component: NoteCreateEditComponent,
-    canActivate: [RouteGuardService]
-  },
-  {
-    path: 'notes/:id/edit',
-    component: NoteCreateEditComponent,
-    canActivate: [RouteGuardService]
   }
 ];
 
