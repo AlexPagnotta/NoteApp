@@ -36,7 +36,11 @@ export class NotesComponent implements OnInit {
   }
 
   createNote() {
-    this.dialog.open(NoteCreateEditComponent);
+    const dialogRef = this.dialog.open(NoteCreateEditComponent, {
+      escapeToClose: true,
+      clickOutsideToClose: true,
+      backdrop: true
+    });
     // this.router.navigate(['notes/new']);
   }
 

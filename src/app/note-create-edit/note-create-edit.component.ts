@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../services/notes.service';
 import { Note } from '../classes/note';
+import { MdcDialogRef } from '@angular-mdc/web';
 
 @Component({
   selector: 'app-note-create-edit',
@@ -15,13 +16,24 @@ export class NoteCreateEditComponent implements OnInit {
 
   constructor(private noteService: NoteService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    public dialogRef: MdcDialogRef<NoteCreateEditComponent>) { }
 
   ngOnInit() {
 
     this.note = new Note();
 
-    this.route.paramMap.subscribe(
+    if (!this.dialogRef.data) {
+      this.isANewNote = true;
+      return;
+    } else {
+      const id: number = this.dialogRef.data.id;
+
+      this.getNoteData(id);
+      this.isANewNote = false;
+    }
+
+    /*this.route.paramMap.subscribe(
       (params) => {
         if (!params.get('id')) {
           this.isANewNote = true;
@@ -32,7 +44,9 @@ export class NoteCreateEditComponent implements OnInit {
         this.getNoteData(id);
         this.isANewNote = false;
       }
-    );
+    );*/
+
+
   }
 
   getNoteData(id) {
