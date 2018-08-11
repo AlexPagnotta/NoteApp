@@ -1,21 +1,3 @@
-<!--<div class="row">
-  <div class="col-md-6">
-    <form name="noteForm" #f="ngForm">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input [(ngModel)] ="note.title" class="form-control" name="name" id="name">
-      </div>
-      <div class="form-group">
-          <label for="text">Text</label>
-          <input [(ngModel)] ="note.text" class="form-control" name="text" id="text">
-      </div>
-      <div class="form-group">
-          <button [disabled]="!f.valid" class="btn btn-primary" (click)="saveNote()">Save</button>
-        </div>
-    </form>
-  </div>
-</div>-->
-
 <mdc-dialog>
   <mdc-dialog-surface>
     <mdc-dialog-header title="Add a new note"></mdc-dialog-header>
@@ -29,14 +11,11 @@
             <label for="text">Text</label>
             <input [(ngModel)] ="note.text" class="form-control" name="text" id="text">
         </div>
-        <div class="form-group">
-            <button [disabled]="!f.valid" class="btn btn-primary" (click)="saveNote()">Save</button>
-          </div>
       </form>
     </mdc-dialog-body>
     <mdc-dialog-footer>
       <button mdc-dialog-button [cancel]="true">Decline</button>
-      <button mdc-dialog-button [accept]="true" (click)="closeDialog()">Accept</button>
+      <button  [disabled]="!f.valid" mdc-dialog-button [accept]="true" (click)="saveNote()">Accept</button>
     </mdc-dialog-footer>
   </mdc-dialog-surface>
 </mdc-dialog>
