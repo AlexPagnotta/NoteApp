@@ -14,6 +14,7 @@
       </form>
     </mdc-dialog-body>
     <mdc-dialog-footer>
+        <button mdcIconButton name="demoiconbutton" iconOn="delete" iconOff="delete" (click)="deleteNote()"></button>
       <button mdc-dialog-button [cancel]="true">Decline</button>
       <button  [disabled]="!f.valid" mdc-dialog-button [accept]="true" (click)="saveNote()">Accept</button>
     </mdc-dialog-footer>

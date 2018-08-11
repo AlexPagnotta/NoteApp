@@ -1,8 +1,9 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NoteService } from '../services/notes.service';
 import { Note } from '../classes/note';
 import { MdcDialogRef } from '@angular-mdc/web';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-note-create-edit',
@@ -93,6 +94,9 @@ export class NoteCreateEditComponent implements OnInit {
     .catch((err) => {
       console.log('error: ', err.message);
     });
+  }
+
+  deleteNote() {
   }
 
 }
