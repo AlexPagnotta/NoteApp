@@ -13,7 +13,7 @@
   <mdc-image-list [masonry]="true" class="masonry-image-list">
     <mdc-image-list-item *ngFor="let note of notes">
             <div app-note 
-            [note-data]="note" (onDeleteNote)="onDeleteNote($event)">
+            [note-data]="note" (onDeleteNote)="onDeleteNote($event)" (onUpdateNote)="onUpdateNote($event)">
             </div>
      </mdc-image-list-item> 
   </mdc-image-list>

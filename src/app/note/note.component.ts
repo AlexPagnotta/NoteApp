@@ -17,6 +17,8 @@ export class NoteComponent implements OnInit {
 
   // tslint:disable-next-line:no-output-rename
   @Output('onDeleteNote') noteDeleted = new EventEmitter();
+  // tslint:disable-next-line:no-output-rename
+  @Output('onUpdateNote') noteUpdated = new EventEmitter();
 
   constructor(public dialog: MdcDialog) { }
 
@@ -29,6 +31,10 @@ export class NoteComponent implements OnInit {
       escapeToClose: true,
       clickOutsideToClose: true,
       backdrop: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.noteUpdated.emit(this.note);
     });
   }
 

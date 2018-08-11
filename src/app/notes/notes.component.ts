@@ -11,27 +11,32 @@ import { NoteCreateEditComponent } from '../note-create-edit/note-create-edit.co
 })
 export class NotesComponent implements OnInit {
 
-  notes: Note[] = [];
+  notes: Note[];
 
   constructor(public dialog: MdcDialog, private service: NoteService) { }
 
   ngOnInit() {
+    this.reloadUi();
+  }
+
+  reloadUi() {
     this.service.getNotes()
-     .then((result) => {
-      console.log('ok: ', result);
-      const data = JSON.parse(result);
-      data.forEach(element => {
-        const note = new Note();
-        note.id = element['id'];
-        note.title = element['title'];
-        note.text = element['text'];
-        this.notes.push(note);
-        console.log(note.text);
-     });
-    })
-    .catch((err) => {
-      console.log('error: ', err.message);
+    .then((result) => {
+     console.log('ok: ', result);
+     const data = JSON.parse(result);
+     this.notes = [];
+     data.forEach(element => {
+       const note = new Note();
+       note.id = element['id'];
+       note.title = element['title'];
+       note.text = element['text'];
+       this.notes.push(note);
+       console.log(note.text);
     });
+   })
+   .catch((err) => {
+     console.log('error: ', err.message);
+   });
   }
 
   createNote() {
@@ -40,6 +45,15 @@ export class NotesComponent implements OnInit {
       clickOutsideToClose: true,
       backdrop: true
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.reloadUi();
+    });
+  }
+
+  onUpdateNote(note) {
+    this.reloadUi();
+    console.log('CIAOOO');
   }
 
   onDeleteNote(note) {
