@@ -1,21 +1,17 @@
-<mdc-dialog>
-  <mdc-dialog-surface>
-    <mdc-dialog-header title="Add a new note"></mdc-dialog-header>
+<mdc-dialog >
+  <mdc-dialog-surface class="dialog">
     <mdc-dialog-body>
       <form name="noteForm" #f="ngForm">
         <div class="form-group">
-          <label for="title">Title</label>
-          <input [(ngModel)] ="note.title" class="form-control" name="name" id="name">
+          <input  [(ngModel)] ="note.title" placeholder="Title" class="text-input title" name="name" id="name">
         </div>
         <div class="form-group">
-            <label for="text">Text</label>
-            <input [(ngModel)] ="note.text" class="form-control" name="text" id="text">
+            <textarea  [(ngModel)] ="note.text" placeholder="Text" class="text-input" name="text" id="text"></textarea>
         </div>
       </form>
     </mdc-dialog-body>
-    <mdc-dialog-footer>
-        <button mdcIconButton name="demoiconbutton" iconOn="delete" iconOff="delete" (click)="deleteNote()"></button>
-      <button mdc-dialog-button [cancel]="true">Decline</button>
+    <mdc-dialog-footer class="footer-dialog">
+      <button  mdc-dialog-button class="btn-cancel" [cancel]="true" >Decline</button>
       <button  [disabled]="!f.valid" mdc-dialog-button [accept]="true" (click)="saveNote()">Accept</button>
     </mdc-dialog-footer>
   </mdc-dialog-surface>

@@ -8,7 +8,7 @@ import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-note-create-edit',
   templateUrl: './note-create-edit.component.html',
-  styleUrls: ['./note-create-edit.component.css']
+  styleUrls: ['./note-create-edit.component.scss']
 })
 export class NoteCreateEditComponent implements OnInit {
 
@@ -95,8 +95,4 @@ export class NoteCreateEditComponent implements OnInit {
       console.log('error: ', err.message);
     });
   }
-
-  deleteNote() {
-  }
-
 }
