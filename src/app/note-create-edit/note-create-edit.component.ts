@@ -18,7 +18,8 @@ export class NoteCreateEditComponent implements OnInit {
   constructor(private noteService: NoteService,
     private route: ActivatedRoute,
     private router: Router,
-    public dialogRef: MdcDialogRef<NoteCreateEditComponent>) { }
+    public dialogRef: MdcDialogRef<NoteCreateEditComponent>,
+    private service: NoteService) { }
 
   ngOnInit() {
 
@@ -95,4 +96,20 @@ export class NoteCreateEditComponent implements OnInit {
       console.log('error: ', err.message);
     });
   }
+
+  deleteNote() {
+
+    this.service.deleteNote(this.note)
+    .then((result) => {
+      // Delete from list
+      //const id = this.notes.indexOf(note);
+      //this.notes.splice(id, 1);
+      console.log('Deleted');
+    })
+    .catch((err) => {
+      console.log('error: ', err.message);
+    });
+
+    this.dialogRef.close("a"); //TODO if empty doesn reload, cause doesnt enter the after closed method
+    }
 }

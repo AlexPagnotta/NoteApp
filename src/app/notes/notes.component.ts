@@ -53,10 +53,10 @@ export class NotesComponent implements OnInit {
 
   onUpdateNote(note) {
     this.reloadUi();
-    console.log('CIAOOO');
   }
 
-  onDeleteNote(note) {
+  public onDeleteNote(note) {
+    console.log('CIAOOO');
     this.service.deleteNote(note)
     .then((result) => {
       // Delete from list
