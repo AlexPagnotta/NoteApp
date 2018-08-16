@@ -3,6 +3,7 @@
 .container-main{
     background-color: $back-color;
     height: 100%;
+    font-family: 'Product Sans';
 }
 
 .navbar{
@@ -21,15 +22,21 @@
   }
 }
 
+.mdc-fab {
+  font-size: 18px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  font-family: 'Product Sans';
+}
+
 .add-note-btn{
   color:white;
   width: 200px;
   background-color: $mdc-theme-primary;
   float :right;
   margin-right: 30px;
+  text-transform: capitalize;
   @include box-shadow(0px, 3px, 8px, 0px, rgba(194, 194, 194, 0.2));
-
- 
 }
 
 .add-note-btn-mobile{

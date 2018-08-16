@@ -17,6 +17,7 @@
   width: 200px;
   display: flex;
   align-items: center;
+  letter-spacing: 1px;
 }
 
 .logo-text {
@@ -161,6 +162,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .user-image {
@@ -170,6 +173,14 @@
   background-color: lightgray;
   margin-top: 10px;
   padding-right: -10px;
+}
+
+.mdc-button {
+  font-size: 18px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+  font-family: 'Product Sans';
 }
 
 .user-logout-button {

@@ -5,11 +5,13 @@
     overflow: hidden;
     max-width: 400px;
     padding-top: 10px;
+    
 }
 
 .text-input.title{
     font-size: 25px;
     color: $mdc-theme-secondary;
+
 }
 
 .text-input{
@@ -25,6 +27,8 @@
     border: none;
     font-size: 18px;
     resize: none;
+
+    font-family: 'Product Sans';
 }
 
 
@@ -52,7 +56,9 @@
 }
 
 .mdc-button{
-    font-weight: light;
+    font-weight: 500;
     color: $mdc-theme-secondary;
     font-size: 16px;  
+
+    font-family: 'Product Sans';
 }
