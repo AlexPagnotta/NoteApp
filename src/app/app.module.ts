@@ -23,6 +23,7 @@ import { MdcButtonModule, MdcFabModule,
   MdcGridListModule, MdcIconModule,
   MdcMenuModule, MdcIconButtonModule,
   MdcImageListModule, MdcDialogModule  } from '@angular-mdc/web';
+import {AutosizeModule} from 'ngx-autosize';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { MdcButtonModule, MdcFabModule,
     MdcImageListModule,
     MdcFabModule,
     MdcIconModule,
-    MdcDialogModule
+    MdcDialogModule,
+    AutosizeModule
   ],
   entryComponents: [
     NoteCreateEditComponent

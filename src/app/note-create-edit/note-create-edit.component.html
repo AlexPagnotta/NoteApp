@@ -6,7 +6,7 @@
           <input  [(ngModel)] ="note.title" placeholder="Title" class="text-input title" name="name" id="name">
         </div>
         <div class="form-group">
-            <textarea  [(ngModel)] ="note.text" placeholder="Text" class="text-input" name="text" id="text"></textarea>
+            <textarea autosize [minRows]="1" [maxRows]="15" [(ngModel)] ="note.text" placeholder="Text" class="text-input" name="text" id="text"></textarea>
         </div>
       </form>
     </mdc-dialog-body>
