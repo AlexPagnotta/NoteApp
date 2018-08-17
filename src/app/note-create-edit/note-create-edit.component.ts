@@ -30,41 +30,24 @@ export class NoteCreateEditComponent implements OnInit {
       return;
     } else {
       const id: number = this.dialogRef.data.id;
-
       this.getNoteData(id);
       this.isANewNote = false;
     }
-
-    /*this.route.paramMap.subscribe(
-      (params) => {
-        if (!params.get('id')) {
-          this.isANewNote = true;
-          return;
-          // It create a note, there is no note id
-        }
-        const id = params.get('id');
-        this.getNoteData(id);
-        this.isANewNote = false;
-      }
-    );*/
-
-
   }
 
   getNoteData(id) {
     this.noteService.getNote(id)
-    .then((result) => {
-      console.log('ok: ', result);
-      const data = JSON.parse(result);
-      const note = new Note();
-      note.id = data['id'];
-      note.title = data['title'];
-      note.text = data['text'];
-      this.note = note;
-    })
-    .catch((err) => {
-     console.log('error: ', err.message);
-    });
+      .then((result) => {
+        const data = JSON.parse(result);
+        const note = new Note();
+        note.id = data['id'];
+        note.title = data['title'];
+        note.text = data['text'];
+        this.note = note;
+      })
+      .catch((err) => {
+        console.log('error: ', err.message);
+      });
   }
 
   saveNote() {
@@ -79,33 +62,29 @@ export class NoteCreateEditComponent implements OnInit {
 
   updateNote() {
     this.noteService.updateNote(this.note)
-    .then((result) => {
-      console.log('ok: ', result);
-    })
-    .catch((err) => {
-      console.log('error: ', err.message);
-    });
+      .then((result) => {
+      })
+      .catch((err) => {
+        console.log('error: ', err.message);
+      });
   }
 
   createNote() {
     this.noteService.createNote(this.note)
-    .then((result) => {
-      console.log('ok: ', result);
-    })
-    .catch((err) => {
-      console.log('error: ', err.message);
-    });
+      .then((result) => {
+      })
+      .catch((err) => {
+        console.log('error: ', err.message);
+      });
   }
 
   deleteNote() {
-
     this.service.deleteNote(this.note)
-    .then((result) => {
-      console.log('Deleted');
-    })
-    .catch((err) => {
-      console.log('error: ', err.message);
-    });
+      .then((result) => {
+      })
+      .catch((err) => {
+        console.log('error: ', err.message);
+      });
 
     this.dialogRef.close('a'); // TODO if empty doesn reload, cause doesnt enter the after closed method
   }

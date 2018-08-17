@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   private isMobile: boolean;
   private searchString = '';
 
-  constructor(private auth: AuthService,  private router: Router ) {
+  constructor(private auth: AuthService, private router: Router) {
     this.user = auth.getUserData();
     this.isMobile = window.innerWidth < 840;
   }
@@ -31,9 +31,11 @@ export class NavbarComponent implements OnInit {
   @ViewChild('menu') menu: MdcMenu;
 
   @HostListener('window:resize', ['$event'])
+
   onResize(event) {
     this.isMobile = window.innerWidth < 840;
   }
+
   ngOnInit() {
   }
 

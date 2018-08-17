@@ -13,21 +13,21 @@ export class NoteService {
 
     getNotes(): Promise<string> {
         return this.http
-          .get(`${this.url}/notes`)
-          .toPromise()
-          .then(res => res.text());
+            .get(`${this.url}/notes`)
+            .toPromise()
+            .then(res => res.text());
     }
 
     getNote(id): Promise<string> {
         return this.http
             .get(`${this.url}/notes/` + id)
-          .toPromise()
-          .then(res => res.text());
+            .toPromise()
+            .then(res => res.text());
     }
 
     createNote(note): Promise<string> {
         return this.http
-            .post(this.url + '/notes' , note)
+            .post(this.url + '/notes', note)
             .toPromise()
             .then(res => res.text());
     }
@@ -41,10 +41,10 @@ export class NoteService {
     }
 
     deleteNote(note): Promise<string> {
-        const data = {_method: 'DELETE'};
+        const data = { _method: 'DELETE' };
         return this.http
             .post(this.url + '/notes/' + note.id, data)
             .toPromise()
             .then(res => res.text());
-      }
+    }
 }

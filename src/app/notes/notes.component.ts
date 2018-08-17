@@ -22,24 +22,22 @@ export class NotesComponent implements OnInit {
 
   reloadUi() {
     this.service.getNotes()
-    .then((result) => {
-     console.log('ok: ', result);
-     const data = JSON.parse(result);
-     this.notes = [];
-     data.forEach(element => {
-       const note = new Note();
-       note.id = element['id'];
-       note.title = element['title'];
-       note.text = element['text'];
-       this.notes.push(note);
-       console.log(note.text);
-
-       this.notesToShow = Object.assign([], this.notes);
-    });
-   })
-   .catch((err) => {
-     console.log('error: ', err.message);
-   });
+      .then((result) => {
+        console.log('ok: ', result);
+        const data = JSON.parse(result);
+        this.notes = [];
+        data.forEach(element => {
+          const note = new Note();
+          note.id = element['id'];
+          note.title = element['title'];
+          note.text = element['text'];
+          this.notes.push(note);
+          this.notesToShow = Object.assign([], this.notes);
+        });
+      })
+      .catch((err) => {
+        console.log('error: ', err.message);
+      });
   }
 
   createNote() {
@@ -68,15 +66,14 @@ export class NotesComponent implements OnInit {
   public onDeleteNote(note) {
     console.log('CIAOOO');
     this.service.deleteNote(note)
-    .then((result) => {
-      // Delete from list
-      const id = this.notes.indexOf(note);
-      this.notes.splice(id, 1);
-      console.log('Deleted');
-    })
-    .catch((err) => {
-      console.log('error: ', err.message);
-    });
+      .then((result) => {
+        // Delete from list
+        const id = this.notes.indexOf(note);
+        this.notes.splice(id, 1);
+      })
+      .catch((err) => {
+        console.log('error: ', err.message);
+      });
   }
 
 }

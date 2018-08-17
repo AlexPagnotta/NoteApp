@@ -8,9 +8,9 @@ describe('NoteCreateEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoteCreateEditComponent ]
+      declarations: [NoteCreateEditComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

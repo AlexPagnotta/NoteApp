@@ -11,7 +11,7 @@ import { User } from '../classes/user';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private auth: AuthService, private router: Router ) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   hasSignupError = false;
   signupErrorText = '';
@@ -30,40 +30,39 @@ export class SignupComponent implements OnInit {
     const password = form.value.password;
 
     this.auth.signup(email, name, password)
-    .then((result) => {
-      console.log('ok: ', result);
-      const data = JSON.parse(result);
-      const user = new User();
-      user.name = data['name'];
-      user.email = data['email'];
-      this.auth.setToken(data['token'], user);
-      this.router.navigate(['']);
-    })
-    .catch((error: any) => {
-      this.hasSignupError = true;
+      .then((result) => {
+        const data = JSON.parse(result);
+        const user = new User();
+        user.name = data['name'];
+        user.email = data['email'];
+        this.auth.setToken(data['token'], user);
+        this.router.navigate(['']);
+      })
+      .catch((error: any) => {
+        this.hasSignupError = true;
 
-      error = error.json().error;
+        error = error.json().error;
 
-      // Check Validation errors
-      if (error.name !== undefined) {
-        this.signupErrorText = error.name[0];
-        console.log('error', error.name[0]);
-        return;
-      }
-      if (error.email !== undefined) {
-        this.signupErrorText = error.email[0];
-        console.log('error', error.email[0]);
-        return;
-      }
-      if (error.password !== undefined) {
-        this.signupErrorText = error.password[0];
-        console.log('error', error.password[0]);
-        return;
-      }
+        // Check Validation errors
+        if (error.name !== undefined) {
+          this.signupErrorText = error.name[0];
+          console.log('error', error.name[0]);
+          return;
+        }
+        if (error.email !== undefined) {
+          this.signupErrorText = error.email[0];
+          console.log('error', error.email[0]);
+          return;
+        }
+        if (error.password !== undefined) {
+          this.signupErrorText = error.password[0];
+          console.log('error', error.password[0]);
+          return;
+        }
 
-      this.hasSignupError = error ;
-      console.log('error', error);
-    });
+        this.hasSignupError = error;
+        console.log('error', error);
+      });
   }
 
   logIn() {

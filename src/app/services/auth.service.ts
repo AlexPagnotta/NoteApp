@@ -67,10 +67,10 @@ export class AuthService {
     return this.http
       .post(`${this.url}/login`,
         JSON.stringify(
-            {
-                email: email,
-                password: password
-            }
+          {
+            email: email,
+            password: password
+          }
         ),
         { headers: this.headers })
       .toPromise()
@@ -81,11 +81,11 @@ export class AuthService {
     return this.http
       .post(`${this.url}/register`,
         JSON.stringify(
-            {
-                email: email,
-                name: name,
-                password: password
-            }
+          {
+            email: email,
+            name: name,
+            password: password
+          }
         ),
         { headers: this.headers })
       .toPromise()

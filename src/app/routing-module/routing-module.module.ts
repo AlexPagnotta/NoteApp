@@ -8,26 +8,26 @@ import { SignupComponent } from '../signup/signup.component';
 import { RouteGuardService } from '../route-guard.service';
 
 const routes: Routes =
-[
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'signup',
-    component: SignupComponent
-  },
-  {
-    path: 'notes',
-    component: NotesComponent,
-    canActivate: [RouteGuardService]
-  },
-  {
-    path: '',
-    redirectTo: 'notes',
-    pathMatch: 'full'
-  }
-];
+  [
+    {
+      path: 'login',
+      component: LoginComponent
+    },
+    {
+      path: 'signup',
+      component: SignupComponent
+    },
+    {
+      path: 'notes',
+      component: NotesComponent,
+      canActivate: [RouteGuardService]
+    },
+    {
+      path: '',
+      redirectTo: 'notes',
+      pathMatch: 'full'
+    }
+  ];
 
 @NgModule({
   imports: [
@@ -37,7 +37,7 @@ const routes: Routes =
   exports: [
     RouterModule
   ],
-  providers : [RouteGuardService],
+  providers: [RouteGuardService],
   declarations: []
 })
 export class RoutingModuleModule { }

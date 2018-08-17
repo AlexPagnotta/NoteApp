@@ -30,36 +30,35 @@ export class LoginComponent implements OnInit {
     const password = form.value.password;
 
     this.auth.login(email, password)
-    .then((result) => {
-      console.log('ok: ', result);
-      const data = JSON.parse(result);
-      const user = new User();
-      user.name = data['name'];
-      user.email = data['email'];
-      this.auth.removeTokens();
-      this.auth.setToken(data['token'], user);
-      this.router.navigate(['']);
-    })
-    .catch((error: any) => {
-      this.hasLoginError = true;
+      .then((result) => {
+        const data = JSON.parse(result);
+        const user = new User();
+        user.name = data['name'];
+        user.email = data['email'];
+        this.auth.removeTokens();
+        this.auth.setToken(data['token'], user);
+        this.router.navigate(['']);
+      })
+      .catch((error: any) => {
+        this.hasLoginError = true;
 
-      error = error.json().error;
+        error = error.json().error;
 
-      // Check Validation errors
-      if (error.email !== undefined) {
-        this.loginErrorText = error.email[0];
-        console.log('error', error.email[0]);
-        return;
-      }
-      if (error.password !== undefined) {
-        this.loginErrorText = error.password[0];
-        console.log('error', error.password[0]);
-        return;
-      }
+        // Check Validation errors
+        if (error.email !== undefined) {
+          this.loginErrorText = error.email[0];
+          console.log('error', error.email[0]);
+          return;
+        }
+        if (error.password !== undefined) {
+          this.loginErrorText = error.password[0];
+          console.log('error', error.password[0]);
+          return;
+        }
 
-      this.loginErrorText = error ;
-      console.log('error', error);
-    });
+        this.loginErrorText = error;
+        console.log('error', error);
+      });
   }
 
   signUp() {
