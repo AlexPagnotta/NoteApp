@@ -1,9 +1,10 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Output } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { User } from '../classes/user';
 import { Router } from '@angular/router';
 import { ViewChild } from '@angular/core';
 import { MdcMenu, MdcMenuItem } from '@angular-mdc/web';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -17,11 +18,15 @@ export class NavbarComponent implements OnInit {
   private selectedIndex = -1;
   private isSearchVisible = false;
   private isMobile: boolean;
+  private searchString = '';
 
   constructor(private auth: AuthService,  private router: Router ) {
     this.user = auth.getUserData();
     this.isMobile = window.innerWidth < 840;
   }
+
+  // tslint:disable-next-line:no-output-rename
+  @Output('onNotesSearch') noteSearch = new EventEmitter();
 
   @ViewChild('menu') menu: MdcMenu;
 
@@ -49,6 +54,10 @@ export class NavbarComponent implements OnInit {
   logOut() {
     this.auth.logout();
     this.router.navigate(['login']);
+  }
+
+  search() {
+    this.noteSearch.emit(this.searchString);
   }
 
 }

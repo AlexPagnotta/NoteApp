@@ -29,6 +29,8 @@
     resize: none;
 
     font-family: 'Product Sans';
+    
+    outline: none;
 }
 
 
@@ -53,6 +55,8 @@
 
 .btn-delete{
     color: $text-dark-color !important;
+    position: absolute;
+    left: 30px;
 }
 
 .btn-cancel{

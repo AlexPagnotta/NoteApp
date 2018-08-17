@@ -55,6 +55,10 @@ export class NotesComponent implements OnInit {
     this.reloadUi();
   }
 
+  onNotesSearch(searchString) {
+    console.log(searchString);
+  }
+
   public onDeleteNote(note) {
     console.log('CIAOOO');
     this.service.deleteNote(note)

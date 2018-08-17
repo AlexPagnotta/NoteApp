@@ -1,6 +1,6 @@
 <div class="container-main">
 
-  <app-navbar class="navbar"></app-navbar>
+  <app-navbar (onNotesSearch)="onNotesSearch($event)" class="navbar"></app-navbar>
   <div class="add-bar">
     <button mdc-fab  [extended]="true" label="Add a new note" (click)="createNote()"
      class="add-note-btn">
