@@ -11,7 +11,7 @@
     <span class="mdc-fab__icon material-icons">add</span> 
   </button> 
   <mdc-image-list [masonry]="true" class="masonry-image-list">
-    <mdc-image-list-item *ngFor="let note of notes">
+    <mdc-image-list-item *ngFor="let note of notesToShow">
             <div app-note 
             [note-data]="note" (onDeleteNote)="onDeleteNote($event)" (onUpdateNote)="onUpdateNote($event)">
             </div>

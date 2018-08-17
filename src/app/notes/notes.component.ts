@@ -12,6 +12,7 @@ import { NoteCreateEditComponent } from '../note-create-edit/note-create-edit.co
 export class NotesComponent implements OnInit {
 
   notes: Note[];
+  notesToShow: Note[];
 
   constructor(public dialog: MdcDialog, private service: NoteService) { }
 
@@ -32,6 +33,8 @@ export class NotesComponent implements OnInit {
        note.text = element['text'];
        this.notes.push(note);
        console.log(note.text);
+
+       this.notesToShow = Object.assign([], this.notes);
     });
    })
    .catch((err) => {
@@ -57,6 +60,9 @@ export class NotesComponent implements OnInit {
 
   onNotesSearch(searchString) {
     console.log(searchString);
+    this.notesToShow = this.notes.filter(x =>
+      x.title.toUpperCase().includes(searchString.toUpperCase()) ||
+      x.text.toUpperCase().includes(searchString.toUpperCase()));
   }
 
   public onDeleteNote(note) {

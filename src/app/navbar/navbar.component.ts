@@ -43,6 +43,8 @@ export class NavbarComponent implements OnInit {
 
   hideSearchBar() {
     this.isSearchVisible = false;
+    this.searchString = '';
+    this.noteSearch.emit('');
   }
 
   handleMenuSelect(event: { index: number, item: MdcMenuItem }) {
@@ -59,5 +61,4 @@ export class NavbarComponent implements OnInit {
   search() {
     this.noteSearch.emit(this.searchString);
   }
-
 }
