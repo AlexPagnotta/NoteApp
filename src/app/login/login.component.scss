@@ -118,6 +118,7 @@ $card-heigth: 700px;
     width: 100%;
 
     border: none;
+    outline: none;
 
     @include box-shadow(0px, 3px, 8px, 0px, rgba(194,194,194,0.2));
     font-size: 18px;

@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       const user = new User();
       user.name = data['name'];
       user.email = data['email'];
+      this.auth.removeTokens();
       this.auth.setToken(data['token'], user);
       this.router.navigate(['']);
     })

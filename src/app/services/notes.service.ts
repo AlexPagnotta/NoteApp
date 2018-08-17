@@ -13,7 +13,7 @@ export class NoteService {
 
     getNotes(): Promise<string> {
         return this.http
-            .get(`${this.url}/notes`)
+          .get(`${this.url}/notes`)
           .toPromise()
           .then(res => res.text());
     }
