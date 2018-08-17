@@ -2,8 +2,8 @@
 
 .container-main{
     background-color: $back-color;
-    height: 100%;
     font-family: 'Product Sans';
+    min-height: 100vh;
 }
 
 .navbar{
