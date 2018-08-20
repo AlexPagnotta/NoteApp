@@ -2,8 +2,6 @@
 
 NoteApp ia simple and lightweight note application, made with angular, and laravel for the backend, mainly for learning purposes.
 
-[Try a demo here](https://github.com/AlexPagnotta/Desplash/raw/master/Desplash.apk)
-
 <img src="https://i.imgur.com/7McVFMP.png" width="640" heigth="360">
 <img src="https://i.imgur.com/eA0md7a.png" width="640" heigth="360">
 <img src="https://i.imgur.com/SJiS4b8.png" width="640" heigth="360">
